@@ -1,5 +1,11 @@
 import { createGameFieldsMap } from './createGameFieldsMap.js';
-import { Field, GameState, LevelOptions } from './interfaces.js';
+import {
+  Field,
+  GameState,
+  LevelOptions,
+  Icons,
+  IconsObj,
+} from './interfaces.js';
 import { render } from './render/render.js';
 
 export const gameState: GameState = {
@@ -7,6 +13,11 @@ export const gameState: GameState = {
   gameStarted: false,
   isGameOver: false,
   gameFieldsMap: [],
+};
+
+export const icons: IconsObj = {
+  flag: Icons.flag,
+  mine: Icons.mine,
 };
 
 const levelOptions: LevelOptions = {

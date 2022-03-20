@@ -1,6 +1,6 @@
 import { Field } from '../interfaces';
 import { handleZeroValue } from './handleZeroValue.js';
-import { gameState } from '../app.js';
+import { gameState, icons } from '../app.js';
 import { openField } from '../render/openField.js';
 
 export const handlerClick = (
@@ -15,8 +15,8 @@ export const handlerClick = (
 
   switch (field.fieldValue) {
     case 'mine':
-      openField(rowIndex, index, '<i class="fa-solid fa-bomb">');
-      console.log('Game Over');
+      openField(rowIndex, index, icons.mine);
+      // openAllField();
       break;
     case 0:
       openField(rowIndex, index, '');

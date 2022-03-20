@@ -5,6 +5,15 @@ export type GameState = {
   gameFieldsMap: GameFieldMap;
 };
 
+export enum Icons {
+  flag = '<i class="fa-solid fa-flag"></i>',
+  mine = '<i class="fa-solid fa-bomb">',
+}
+
+export type IconsObj = {
+  flag: Icons.flag;
+  mine: Icons.mine;
+};
 export type GameFieldMap = Array<Array<Field>>;
 
 export type Field = {

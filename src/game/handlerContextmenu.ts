@@ -1,4 +1,5 @@
 import { Field } from '../interfaces';
+import { icons } from '../app.js';
 export const handlerContextmenu = (
   field: Field,
   rowIndex: number,
@@ -8,7 +9,7 @@ export const handlerContextmenu = (
   field.isFlaged = !field.isFlaged;
 
   if (field.isFlaged) {
-    fieldDiv.innerHTML = '<i class="fa-solid fa-flag"></i>';
+    fieldDiv.innerHTML = icons.flag;
   } else {
     fieldDiv.innerHTML = '';
   }
