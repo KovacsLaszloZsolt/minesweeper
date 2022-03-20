@@ -2,6 +2,7 @@ import { Field } from '../interfaces';
 import { handleZeroValue } from './handleZeroValue.js';
 import { gameState, icons } from '../app.js';
 import { openField } from '../render/openField.js';
+import { openAllFields } from '../render/openAllFields.js';
 
 export const handlerClick = (
   field: Field,
@@ -11,12 +12,11 @@ export const handlerClick = (
   if (field.isFlaged) {
     return;
   }
-  gameState.gameFieldsMap[rowIndex][index].isOpen = true;
 
   switch (field.fieldValue) {
     case 'mine':
       openField(rowIndex, index, icons.mine);
-      // openAllField();
+      openAllFields();
       break;
     case 0:
       openField(rowIndex, index, '');

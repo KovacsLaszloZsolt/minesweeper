@@ -25,8 +25,6 @@ export const handleZeroValue = (
     row.rowFields.forEach((field) => {
       if (field.field.fieldValue === 0) {
         if (!field.field.isOpen) {
-          field.field.isOpen = true;
-
           openField(row.rowIndex, field.index, '');
           handleZeroValue(fieldmap, field.index, row.rowIndex);
         }
