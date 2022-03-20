@@ -3,8 +3,15 @@ export type GameState = {
   gameStarted: boolean;
   isGameOver: boolean;
   gameFieldsMap: GameFieldMap;
+  numOfFlagsLeft: number;
+  timer: number;
 };
 
+export enum Levels {
+  easy = 'easy',
+  medium = 'medium',
+  hard = 'hard',
+}
 export enum Icons {
   flag = '<i class="fa-solid fa-flag"></i>',
   mine = '<i class="fa-solid fa-bomb">',

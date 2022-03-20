@@ -1,26 +1,15 @@
-import { createGameFieldsMap } from './createGameFieldsMap.js';
+import { initGame } from './init/initGame.js';
+import { initLevelSelector } from './init/initLevelSelector.js';
 import {
-  Field,
   GameState,
   LevelOptions,
   Icons,
   IconsObj,
+  Levels,
 } from './interfaces.js';
-import { render } from './render/render.js';
+import { setTimer } from './game/setTimer.js';
 
-export const gameState: GameState = {
-  level: 'easy',
-  gameStarted: false,
-  isGameOver: false,
-  gameFieldsMap: [],
-};
-
-export const icons: IconsObj = {
-  flag: Icons.flag,
-  mine: Icons.mine,
-};
-
-const levelOptions: LevelOptions = {
+export const levelOptions: LevelOptions = {
   easy: {
     fieldWidth: 10,
     fieldHeight: 10,
@@ -38,14 +27,21 @@ const levelOptions: LevelOptions = {
   },
 };
 
-const initGame = () => {
-  const level: string = gameState.level;
-  gameState.gameFieldsMap = createGameFieldsMap(
-    levelOptions[level as keyof LevelOptions],
-    gameState.gameFieldsMap
-  );
-
-  render();
+export const gameState: GameState = {
+  level: Levels.easy,
+  gameStarted: false,
+  isGameOver: false,
+  gameFieldsMap: [],
+  numOfFlagsLeft: levelOptions[Levels.easy].numOfMines,
+  timer: 0,
 };
 
+export const icons: IconsObj = {
+  flag: Icons.flag,
+  mine: Icons.mine,
+};
+
+initLevelSelector();
 initGame();
+
+setTimer();
