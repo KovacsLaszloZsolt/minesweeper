@@ -3,7 +3,7 @@ import { Field, GameState, LevelOptions } from './interfaces.js';
 import { render } from './render/render.js';
 
 export const gameState: GameState = {
-  level: 'hard',
+  level: 'easy',
   gameStarted: false,
   isGameOver: false,
   gameFieldsMap: [],

@@ -1,28 +1,28 @@
-import { Field } from "../interfaces";
-import { handleZeroValue } from "./handleZeroValue.js";
-import { gameState } from "../app.js";
+import { Field } from '../interfaces';
+import { handleZeroValue } from './handleZeroValue.js';
+import { gameState } from '../app.js';
+import { openField } from '../render/openField.js';
 
 export const handlerClick = (
-  e: MouseEvent,
   field: Field,
   index: number,
   rowIndex: number
 ): void => {
-  const div = e.target as HTMLElement;
-  div.innerText = field.fieldValue ? (field.fieldValue as string) : "";
-
+  if (field.isFlaged) {
+    return;
+  }
   gameState.gameFieldsMap[rowIndex][index].isOpen = true;
 
   switch (field.fieldValue) {
-    case "mine":
-      div.classList.add("open-mine");
-      console.log("Game Over");
+    case 'mine':
+      openField(rowIndex, index, '<i class="fa-solid fa-bomb">');
+      console.log('Game Over');
       break;
     case 0:
-      div.classList.add("open");
+      openField(rowIndex, index, '');
       handleZeroValue(gameState.gameFieldsMap, index, rowIndex);
       break;
     default:
-      div.classList.add("open-num");
+      openField(rowIndex, index, field.fieldValue!);
   }
 };

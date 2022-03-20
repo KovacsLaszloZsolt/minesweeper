@@ -1,5 +1,5 @@
-import { randomNumber } from "../randomNumber.js";
-import { GameFieldMap } from "../interfaces.js";
+import { randomNumber } from '../common/randomNumber.js';
+import { GameFieldMap } from '../interfaces.js';
 
 export const randomRowIndex = (gameField: GameFieldMap): number => {
   const index = randomNumber(gameField.length - 1);

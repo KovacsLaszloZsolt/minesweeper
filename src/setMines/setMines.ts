@@ -1,5 +1,5 @@
-import { randomNumber } from "../randomNumber.js";
-import { Field } from "../interfaces.js";
+import { randomNumber } from '../common/randomNumber.js';
+import { Field } from '../interfaces.js';
 export const setMines = (
   row: Array<Field>,
   minesNumber: number
@@ -8,14 +8,14 @@ export const setMines = (
     const getMinesPosition = (row: Array<Field>): number => {
       const index = randomNumber(row.length - 1);
 
-      if (row[index].fieldValue === "mine") {
+      if (row[index].fieldValue === 'mine') {
         return getMinesPosition(row);
       }
 
       return index;
     };
 
-    row[getMinesPosition(row)].fieldValue = "mine";
+    row[getMinesPosition(row)].fieldValue = 'mine';
   }
   return row;
 };

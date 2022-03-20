@@ -1,4 +1,4 @@
-import { randomNumber } from "../randomNumber.js";
+import { randomNumber } from '../common/randomNumber.js';
 
 export const getNumOfMines = (
   maxMinesNum: number,
