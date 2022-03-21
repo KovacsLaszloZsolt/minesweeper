@@ -7,7 +7,6 @@ import {
   IconsObj,
   Levels,
 } from './interfaces.js';
-import { setTimer } from './game/setTimer.js';
 
 export const levelOptions: LevelOptions = {
   easy: {
@@ -32,9 +31,12 @@ export const gameState: GameState = {
   gameStarted: false,
   isGameOver: false,
   gameFieldsMap: [],
-  numOfFlagsLeft: levelOptions[Levels.easy].numOfMines,
+  numOfFlagsLeft: 0,
   timer: 0,
 };
+
+gameState.numOfFlagsLeft =
+  levelOptions[gameState.level as keyof LevelOptions].numOfMines;
 
 export const icons: IconsObj = {
   flag: Icons.flag,
@@ -43,5 +45,3 @@ export const icons: IconsObj = {
 
 initLevelSelector();
 initGame();
-
-setTimer();
