@@ -36,8 +36,10 @@ export type LevelOptions = {
 };
 
 export type Options = {
-  fieldWidth: number;
-  fieldHeight: number;
+  maxNumOfFields: number;
+  maxFieldsInRow: number;
+  mapWidth?: number;
+  mapHeight?: number;
   numOfMines: number;
 };
 

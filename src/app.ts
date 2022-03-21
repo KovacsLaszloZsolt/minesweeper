@@ -1,5 +1,6 @@
 import { initGame } from './init/initGame.js';
 import { initLevelSelector } from './init/initLevelSelector.js';
+import { setLevelOptions } from './init/setLevelOptions.js';
 import {
   GameState,
   LevelOptions,
@@ -10,22 +11,23 @@ import {
 
 export const levelOptions: LevelOptions = {
   easy: {
-    fieldWidth: 10,
-    fieldHeight: 10,
+    maxNumOfFields: 100,
+    maxFieldsInRow: 10,
     numOfMines: 10,
   },
   medium: {
-    fieldWidth: 20,
-    fieldHeight: 20,
+    maxNumOfFields: 400,
+    maxFieldsInRow: 20,
     numOfMines: 40,
   },
   hard: {
-    fieldWidth: 30,
-    fieldHeight: 30,
+    maxNumOfFields: 900,
+    maxFieldsInRow: 30,
     numOfMines: 100,
   },
 };
 
+setLevelOptions();
 export const gameState: GameState = {
   level: Levels.easy,
   gameStarted: false,
