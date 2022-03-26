@@ -1,0 +1,203 @@
+:root {
+  --basicFieldColor: #56664b;
+  --basicFieldColor2: #7d916e;
+  --fieldWidth: 2rem;
+  --fieldHeight: var(--fieldWidth);
+  --hoverFieldBg: #b1ffb1b6;
+}
+
+body {
+  background-image: url('img/desert-4830921_1920.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  padding: 3em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.header div:nth-child(2) {
+  margin: 0 3rem;
+}
+
+.flag-ctn > span,
+.timer-ctn > span {
+  display: inline-block;
+}
+
+.flag-ctn > span:first-child,
+.timer-ctn > span:first-child {
+  margin-right: 0.5rem;
+}
+
+.flag-ctn {
+  display: flex;
+  align-items: center;
+}
+
+.timer-ctn {
+  display: flex;
+  align-items: center;
+}
+
+.field-ctn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: var(--fieldWidth);
+  height: var(--fieldHeight);
+  background-color: var(--basicFieldColor);
+}
+
+.row:nth-of-type(odd) > .field:nth-of-type(odd) {
+  background-color: var(--basicFieldColor);
+}
+
+.row:nth-of-type(odd) > .field:nth-of-type(even) {
+  background-color: var(--basicFieldColor2);
+}
+
+.row:nth-of-type(even) > .field:nth-of-type(odd) {
+  background-color: var(--basicFieldColor2);
+}
+
+.row:nth-of-type(even) > .field:nth-of-type(even) {
+  background-color: var(--basicFieldColor);
+}
+.field:hover {
+  background-color: var(--hoverFieldBg);
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.open {
+  background-color: #c9bdb3 !important;
+  border: 1px solid #cccccc;
+}
+
+.open-num {
+  background-color: #544842 !important;
+  color: #fff;
+  border: 1px solid #827168;
+}
+
+.open-mine {
+  background-color: #c45627 !important;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.open:hover,
+.open-num:hover {
+  background-color: unset;
+  cursor: auto;
+}
+
+.modal {
+  position: absolute;
+  padding: 1em;
+}
+
+.game-over {
+  background-color: rgb(200, 201, 161);
+  top: 10rem;
+  width: 100%;
+  text-align: center;
+}
+
+.play-again-btn {
+  width: 5rem;
+  position: relative;
+  top: 0.5em;
+  background-color: #665f5a;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em;
+}
+
+.play-again-btn:hover {
+  background-color: gray;
+}
+
+.mobile-modal {
+  position: absolute;
+  width: calc(3 * var(--fieldWidth));
+  height: var(--fieldHeight);
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid darkgray;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.mobile-modal > .fa-trowel {
+  grid-area: trowel;
+  justify-self: center;
+}
+
+.mobile-modal > .close {
+  grid-area: close;
+  justify-self: center;
+}
+
+.mobile-modal > .fa-flag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: flag;
+  justify-self: center;
+  font-size: 1rem;
+  color: #c45627;
+}
+
+.hidden {
+  display: none;
+}
+
+.level-selector {
+  padding: 0.5em;
+  border-radius: 0.5em;
+}

@@ -81,4 +81,3 @@ typings/
 .dynamodb/
 
 lib
-dist
