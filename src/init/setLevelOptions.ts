@@ -7,7 +7,11 @@ export const setLevelOptions = (): void => {
   const bodyStyles = getComputedStyle(body) as { [key: string]: any };
   const rem = parseInt(bodyStyles.getPropertyValue('font-size'));
 
-  const fieldInRow = Math.floor((window.innerWidth - rem) / (3 * rem));
+  const root = document.querySelector(':root') as Element;
+  const rootStyle = getComputedStyle(root) as { [key: string]: any };
+  const fieldWidth = parseFloat(rootStyle.getPropertyValue('--fieldWidth'));
+
+  const fieldInRow = Math.floor((window.innerWidth - rem) / (fieldWidth * rem));
 
   Object.keys(levelOptions).forEach((level) => {
     const levelObj = levelOptions[level as keyof LevelOptions];
@@ -19,21 +23,4 @@ export const setLevelOptions = (): void => {
       levelObj.maxNumOfFields / levelObj.mapWidth
     );
   });
-
-  console.log(window.innerWidth);
-  console.log(levelOptions);
-
-  // maxNumOfFields: 100,
-  //   maxFieldsInRow: 10,
-  // if (
-  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //     navigator.userAgent
-  //   )
-  // ) {
-  //   // true for mobile device
-  //   console.log('mobile device');
-  // } else {
-  //   // false for not mobile device
-  //   console.log('not mobile device');
-  // }
 };

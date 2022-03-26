@@ -1,5 +1,6 @@
 import { gameState } from '../app.js';
-export const renderTimer = (timerSpan: HTMLSpanElement) => {
+export const renderTimer = (): void => {
+  const timerSpan = document.querySelector('.timer') as HTMLSpanElement;
   const mins = Math.floor(gameState.timer / 60);
   const secs = gameState.timer % 60;
   const setDouble = (num: number): string => {

@@ -1,28 +1,37 @@
 import { gameState } from '../app.js';
-import { handlerClick } from '../game/handlerClick.js';
-import { handlerContextmenu } from '../game/handlerContextmenu.js';
+import { handleClick } from '../game/handleClick.js';
+import { handleRightClick } from '../game/handleRightClick.js';
+import { initMobileModal } from '../modals/initMobileModal.js';
+import { renderModal } from './renderModal.js';
+import { renderRemainingFlags } from './renderRemainingFlags.js';
 
 export const render = (): void => {
-  const minesweeperCtn = document.querySelector('.field-ctn') as HTMLDivElement;
+  const fieldCtnDiv = document.querySelector('.field-ctn') as HTMLDivElement;
+  fieldCtnDiv.innerHTML = '';
   gameState.gameFieldsMap.forEach((row, rowIndex) => {
     const rowDiv = document.createElement('div');
     rowDiv.classList.add('row');
 
-    minesweeperCtn.appendChild(rowDiv);
+    fieldCtnDiv.appendChild(rowDiv);
     row.forEach((field, index) => {
       const fieldDiv = document.createElement('div');
       fieldDiv.dataset.position = `${rowIndex}-${index}`;
-      fieldDiv.addEventListener('click', () => {
-        handlerClick(field, index, rowIndex);
+      fieldDiv.addEventListener('click', (e) => {
+        handleClick(e, rowIndex, index, field);
       });
 
       fieldDiv.addEventListener('contextmenu', (e) => {
         e.preventDefault();
-        handlerContextmenu(field, index, rowIndex, fieldDiv);
+        handleRightClick(rowIndex, index);
       });
 
       fieldDiv.classList.add('field');
       rowDiv.appendChild(fieldDiv);
     });
   });
+
+  renderRemainingFlags(gameState.numOfFlagsLeft);
+  if (gameState.deviceType === 'mobile') {
+    renderModal(initMobileModal());
+  }
 };

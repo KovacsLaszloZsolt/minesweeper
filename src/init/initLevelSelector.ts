@@ -1,9 +1,8 @@
-import { gameState, levelOptions } from '../app.js';
-import { LevelOptions } from '../interfaces.js';
-import { clearBoard } from '../render/clearBoard.js';
+import { gameState } from '../app.js';
 import { render } from '../render/render.js';
-import { renderRemainingFlags } from '../render/renderRemainingFlags.js';
+import { renderTimer } from '../render/renderTimer.js';
 import { initGame } from './initGame.js';
+import { resetState } from './resetState.js';
 export const initLevelSelector = () => {
   const levelSelector = document.querySelector(
     '.level-selector'
@@ -12,12 +11,10 @@ export const initLevelSelector = () => {
     if (gameState.gameStarted) {
       gameState.gameStarted = false;
     }
+
     gameState.level = levelSelector.value;
-    gameState.numOfFlagsLeft =
-      levelOptions[gameState.level as keyof LevelOptions].numOfMines;
-    gameState.gameFieldsMap = [];
-    clearBoard();
+    resetState();
     initGame();
-    renderRemainingFlags(gameState.numOfFlagsLeft);
+    render();
   });
 };

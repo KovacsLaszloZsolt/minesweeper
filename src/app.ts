@@ -1,6 +1,8 @@
 import { initGame } from './init/initGame.js';
 import { initLevelSelector } from './init/initLevelSelector.js';
 import { setLevelOptions } from './init/setLevelOptions.js';
+import { getDeviceType } from './init/getDeviceType.js';
+import { render } from './render/render.js';
 import {
   GameState,
   LevelOptions,
@@ -29,6 +31,7 @@ export const levelOptions: LevelOptions = {
 
 setLevelOptions();
 export const gameState: GameState = {
+  deviceType: getDeviceType(),
   level: Levels.easy,
   gameStarted: false,
   isGameOver: false,
@@ -47,3 +50,4 @@ export const icons: IconsObj = {
 
 initLevelSelector();
 initGame();
+render();

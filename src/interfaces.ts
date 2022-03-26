@@ -1,4 +1,5 @@
 export type GameState = {
+  deviceType: string | undefined;
   level: string;
   gameStarted: boolean;
   isGameOver: boolean;
@@ -49,11 +50,22 @@ export type RowObj = {
 };
 
 export type PartRowObj = {
-  rowIndex: number;
+  rowIndex: RowObj['rowIndex'];
   rowFields: Array<RowField>;
 };
 
 export type RowField = {
   index: number;
   field: Field;
+};
+
+export enum DeviceType {
+  mobile = 'mobile',
+  desktop = 'desktop',
+}
+
+export type ClickedField = {
+  rowIndex: RowObj['rowIndex'] | null;
+  index: RowField['index'] | null;
+  // field: Field | null;
 };
