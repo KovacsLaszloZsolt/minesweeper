@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node src/server/server.ts",
     "start:dev": "ts-node-dev src/server/server.ts",
-    "build": "tsc --watch"
+    "build": "tsc"
   },
   "devDependencies": {
     "@codingsans/eslint-config": "5.2.1",
