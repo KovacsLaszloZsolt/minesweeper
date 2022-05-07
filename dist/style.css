@@ -1,19 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 :root {
   --basicFieldColor: #56664b;
   --basicFieldColor2: #7d916e;
+  --flagColor: #ff0000;
+  --blue: #0000ff;
+  --green: #008000;
+  --brown: #a52a2a;
+  --yellow: #ffff00;;
   --fieldWidth: 2rem;
   --fieldHeight: var(--fieldWidth);
   --hoverFieldBg: #b1ffb1b6;
 }
 
+.blue {
+  color: var(--blue);
+}
+
+.green {
+  color: var(--green);
+}
+
+.brown {
+  color: var(--brown);
+}
+
+.yellow {
+  color: var(--yellow)
+}
+
+.black {
+  color: #000000
+}
+
 body {
-  background-image: url('img/desert-4830921_1920.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  font-weight: 700;
 }
 
 * {
@@ -27,13 +53,11 @@ html {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.3);
   display: inline-block;
-  padding: 3em;
-  border-radius: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 1rem;
 }
 
 .header {
@@ -60,6 +84,10 @@ html {
 .flag-ctn {
   display: flex;
   align-items: center;
+}
+
+.fa-flag {
+  color: var(--flagColor);
 }
 
 .timer-ctn {
@@ -118,8 +146,8 @@ html {
 }
 
 .open-num {
-  background-color: #544842 !important;
-  color: #fff;
+  background-color: #c5c5c5 !important;
+  /* color: #fff; */
   border: 1px solid #827168;
 }
 

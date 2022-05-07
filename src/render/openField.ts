@@ -15,5 +15,26 @@ export const openField = (
     fieldDiv.classList.add(
       !value ? 'open' : value > 0 ? 'open-num' : 'open-mine'
     );
+
+    let color;
+        switch(value) {
+            case 1:
+              color = 'blue';
+              break;
+            case 2:
+              color = 'green';
+              break;
+            case 3: 
+              color = 'brown';
+              break;
+            case 4: 
+              color = 'yellow';
+              break;
+            default:
+              color = 'black';
+            
+        }
+    
+    fieldDiv.classList.add(color);
   }
 };
